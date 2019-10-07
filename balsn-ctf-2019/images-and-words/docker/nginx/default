@@ -1,0 +1,20 @@
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/zeus/sock/server.sock;
+    }
+
+    location ~ ^/([a-zA-Z0-9_-]+)/ {
+        include proxy_params;
+        proxy_pass http://unix:/home/zeus/sandbox/$1/sock/server.sock;
+
+        # break, do not proceed more locations
+        rewrite ^/([a-zA-Z0-9_-]+)/(.*)$ /$2 break; 
+    }
+}
+
+
+
