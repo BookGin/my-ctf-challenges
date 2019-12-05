@@ -24,22 +24,6 @@ docker exec -it <CONTAINER ID> bash
 
 ## Writeup
 
-```
-*------------------------------------------------------------------------*
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|    Spoilers ahead!         Spoilers ahead!          Spoilers ahead!    |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-*------------------------------------------------------------------------*
-```
-
 The internal server listening on `localhost:6666` will read from inputs and execute in shell line by line. However, Chromium (and Firefox) will [block any access to port 6666](https://superuser.com/a/188070) due to `ERR_UNSAFE_PORT`. It's designed to protect users from protocol smuggling attacks. 
 
 Thus, HTTP-based request (XHR/fetch/html) will fail to be sent. We have to leverage other protocols. Though Chromium supports `ftp`, it's too difficult to abuse `ftp` for protocol smuggling.

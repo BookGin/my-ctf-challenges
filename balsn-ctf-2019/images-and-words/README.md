@@ -24,23 +24,6 @@ docker exec -it <CONTAINER ID> bash
 
 ## Writeup
 
-```
-*------------------------------------------------------------------------*
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|    Spoilers ahead!         Spoilers ahead!          Spoilers ahead!    |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-*------------------------------------------------------------------------*
-```
-
-
 This web application will render a text file to a PNG image using [pypng](https://github.com/drj11/pypng) library. The user can upload a text file under directory `png`.
 
 The key is to identify the package name `png` happens to be the same as the upload directory name. Therefore, if the directory `png` exists, `import png` will not import the module `pypng`, but `png` in current working directory.

@@ -62,22 +62,6 @@ BGM: [American Football - Silhouettes](https://www.youtube.com/watch?v=-TcUvXzgw
 
 ## Writeup
 
-```
-*------------------------------------------------------------------------*
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|    Spoilers ahead!         Spoilers ahead!          Spoilers ahead!    |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-|                                                                        |
-*------------------------------------------------------------------------*
-```
-
 This is a 0-day challenge of a python library [imageio 2.5.0](https://github.com/imageio/imageio/).   
 
 In one of the plugin of imageio, [imageio/plugins/dicom.py](https://github.com/imageio/imageio/blob/cfbd122442ff324e3a33fb0177b74505b369084e/imageio/plugins/dicom.py#L125-L131), is obviously vulnerable to command injection. 
