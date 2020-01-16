@@ -1,0 +1,8 @@
+version: "3"
+services:
+  ponzi:
+    build: ./
+    image: bookgin/ponzi
+    container_name: ponzi
+    ports:
+    - "8081:80/tcp"
