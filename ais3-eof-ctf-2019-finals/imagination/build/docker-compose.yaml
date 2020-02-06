@@ -1,0 +1,21 @@
+version: "2.2"
+services:
+  sshd:
+    build: ./sshd/
+    image: bookgin/sshd
+    container_name: "${COMPOSE_PROJECT_NAME}-sshd"
+    command: ["${ENC_SHADOW}"]
+    ports:
+      - "${PORT}:22/tcp"
+    links:
+      - "imagination"
+    cpus: 0.2
+    mem_limit: 128M
+    ulimits:
+      fsize: 128000000 # 128 MB
+      nproc: 1024
+      nice: 0
+  imagination:
+    build: ./imagination/
+    image: bookgin/imagination
+    container_name: "${COMPOSE_PROJECT_NAME}-imagination"

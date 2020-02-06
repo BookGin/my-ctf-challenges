@@ -15,3 +15,12 @@
 | Name                                                 | Type | Difficulty | Keywords                                      |
 | ---------------------------------------------------- | ---- | ---------- | --------------------------------------------- |
 | [Ponzi Scheme](ais3-eof-ctf-2019-quals/ponzi-scheme) | Misc | ★☆☆☆☆      | Ponzi Scheme, interaction, investing, finance |
+
+## AIS3 EOF CTF 2019 Finals
+
+(domestic CTF)
+
+| Name                                                         | Type | Difficulty | Keywords                                                     |
+| ------------------------------------------------------------ | ---- | ---------- | ------------------------------------------------------------ |
+| [Babyfirst Revenge: Remastered](ais3-eof-ctf-2019-finals/babyfirst-revenge-remastered) | Web  | ★★☆☆☆      | Windows command injection, remote code execution             |
+| [Imagination](ais3-eof-ctf-2019-finals/imagination)          | Web  | ★★☆☆☆      | python cache, pycache hijacking, gunicorn pre-fork worker model |
