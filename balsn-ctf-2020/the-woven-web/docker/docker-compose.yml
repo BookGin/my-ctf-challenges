@@ -1,0 +1,13 @@
+version: "2.2"
+services:
+  the_woven_web:
+    restart: always
+    container_name: the_woven_web
+    image: bookgin/the_woven_web
+    build: .
+    ports:
+      - "80:80/tcp"
+    volumes:
+      - ./app/server.js:/home/user/app/server.js:ro
+      - ./app/worker.js:/home/user/app/worker.js:ro
+      - ./app/run.sh:/home/user/app/run.sh:ro

@@ -1,0 +1,11 @@
+version: "2.2"
+services:
+  windows_xp_media_player:
+    restart: always
+    build: .
+    image: bookgin/windows_xp_media_player
+    container_name: windows_xp_media_player
+    volumes:
+      - ./app:/app:ro
+    ports:
+      - "80:80/tcp"

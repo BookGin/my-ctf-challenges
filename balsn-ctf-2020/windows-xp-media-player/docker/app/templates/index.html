@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <title>Windows XP Media Player</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/xp.css">
+    <style>
+    body {
+      background-image: url('/static/screen.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    </style>
+</head>
+
+<body>
+<div class="window" style="margin: 20px auto; width: 600px">
+  <div class="title-bar">
+    <div class="title-bar-text">Windows XP Media Player</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <menu role="tablist">
+      <button aria-selected="true" aria-controls="music">Music</button>
+    </menu>
+    <article role="tabpanel" id="music">
+      <marquee>Current playing: {{queue[0] if queue else '-'}}</marquee>
+      <fieldset>
+        <legend>Playing Queue</legend>
+        {% for name in (queue if queue else ['[user:]playlist[/song] to add a song or playlist. You can add multiple ones (separate with space).']) %}
+          {% if name == 'Sunset_Rollercoaster:JINJI_KIKKO/Burgundy_Red' %}
+            <div class="field-row"><label><a href="https://www.youtube.com/watch?v=d1REzQ75COs">{{name}}</a></label></div>
+          {% else %}
+            <div class="field-row"><label>{{name}}</label></div>
+          {% endif %}
+        {% endfor %}
+        <br>
+        <form>
+          <section class="field-row">
+            {% if queue %}
+              <input type="text" placeholder="[user:]playlist[/song]" name="args" style="width: 60%"/>
+            {% else %}
+              <input type="text" value="Sunset_Rollercoaster:JINJI_KIKKO/Burgundy_Red" name="args" style="width: 60%"/>
+            {% endif %}
+            <button type="submit" formaction="/q/add">Add</button>
+          </section>
+          <section class="field-row" style="justify-content: flex-end">
+            <button type="submit" formaction="/q/skip">Next</button>
+            <button type="submit" formaction="/q/shuf">Shuffle</button>
+          </section>
+        </form>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your playlists</legend>
+        {% for song in songs %}
+          <div class="field-row"><label>{{song}}</label></div>
+        {% endfor %}
+        <br>
+        <form>
+          <div class="field-row">
+            <input type="text" placeholder="playlist name" name="args" style="width: 60%"/>
+          </div>
+          <section class="field-row" style="justify-content: flex-end">
+            <button type="submit" name="op" value="create">Create</button>
+            <button type="submit" name="op" value="show">Show</button>
+            <button type="submit" name="op" value="stat">Statistics</button>
+          </section>
+        </form>
+      </fieldset>
+
+      <div class="field-row"><label>User: {{uid}}</label></div>
+      <div class="field-row">
+        <label>Premium: no (You cannot add songs to playlists, and you cannot create more than 2 playlists.)</label>
+      </div>
+      <div class="field-row" style="width: 100%">
+        <label>Volume:</label>
+        <label>Low</label>
+        <input type="range" min="0" max="100" value="30" />
+        <label>High</label>
+      </div>
+      <h6>The background image is from https://winxp.now.sh/</h6>
+	  </article>
+  </div>
+</div>
+<img src="/static/bar.jpg" style="margin: 0px 0px 0px -10px; position: absolute; bottom: 0px; width: 100%;"></img>
+</body>
+</html>

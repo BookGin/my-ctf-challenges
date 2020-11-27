@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>Windows XP Media Player</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/xp.css">
+    <style>
+    body {
+      background-image: url('/static/screen.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    </style>
+</head>
+
+<body>
+<div id="f" class="window" style="position: absolute; margin: 20px 0px; width: 400px; height 200px">
+  <div class="title-bar">
+    <div class="title-bar-text">Windows XP Media Player</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <div class="field-row" style="width: 100%">
+        <img src="/static/error.png" width="64" height="64"></img>
+        <label>{{msg}}</label>
+      </div>
+      <section class="field-row" style="justify-content: flex-end">
+        <form action="/">
+          <button type="submit">OK</button>
+        </form>
+      </section>
+  </div>
+</div>
+<img src="/static/bar.jpg" style="margin: 0px 0px 0px -10px; position: absolute; bottom: 0px; width: 100%;"></img>
+</body>
+<script>
+!async function(){
+  let cnt = 100;
+  let [x_diff, y_diff] = [20, 30];
+  let [x, y] = [0, 0];
+  while (true) {
+    let f = document.querySelector('#f').cloneNode(true);
+    f.style.marginLeft = `${x}px`
+    f.style.marginTop = `${y}px`
+    document.body.appendChild(f);
+      cnt += 0.1;
+      await new Promise(r => setTimeout(r, cnt));
+     x += x_diff;
+     y += y_diff;
+     if (y <= 0 || (y+200) >= window.innerHeight) {
+         y_diff *= -1;
+     }
+     if (x <= 0 || (x+400) >= window.innerWidth) {
+         x_diff *= -1;
+     }
+  }
+}();
+</script>
+</html>

@@ -1,5 +1,12 @@
 # My CTF Challenges
 
+## Balsn CTF 2020
+
+| Name                                                         | Type      | Difficulty | Keywords                                                     |
+| ------------------------------------------------------------ | --------- | ---------- | ------------------------------------------------------------ |
+| [The Woven Web](balsn-ctf-2020/the-woven-web)                | Web       | ★★★☆☆      | Cross-Site Script Inclusion, XSSI, Selenium crawler, same-origin policy |
+| [Windows XP Media Player](balsn-ctf-2020/windows-xp-media-player) | Web, Misc | ★★★☆☆      | Command injection, command line argument injection           |
+
 ## Balsn CTF 2019
 
 | Name                                                | Type      | Difficulty | Keywords                                                     |
