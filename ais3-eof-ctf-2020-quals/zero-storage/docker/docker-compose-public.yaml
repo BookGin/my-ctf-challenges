@@ -1,0 +1,39 @@
+version: "2.2"
+services:
+  xssbot:
+    restart: always
+    build: ./xssbot
+    image: bookgin/xssbot
+    container_name: xssbot
+    environment:
+      WORKERS: 4
+      LOAD_TIME_SEC: 7
+      WEB_SERVICE_NAME: "zerostorage"
+      WEB_HOSTNAME: "zero-storage-eof-ctf.csie.org"
+    volumes:
+      - ./xssbot/run.sh:/run.sh:ro
+      - ./xssbot/xssbot.py:/xssbot.py:ro
+  zerostorage:
+    restart: always
+    build: ./zerostorage
+    image: bookgin/zerostorage
+    container_name: zerostorage
+    depends_on:
+      - xssbot
+    ports:
+      - "1310:1310/tcp" # the ports must be identical
+    environment:
+      WORKERS: 4
+      # A: admin's file, B: admin's password
+      FLAG_A: "FLAG{SAMPLE_A}"
+      FLAG_B: "FLAG{SAMPLE_B}"
+      DATABASE_URL: "/tmp/SAMPLE_C.sqlite3"
+      ADMIN_FILENAME: "SAMPLE_D.txt"
+      SECRET_KEY: "SAMPLE_E"
+      REDIS_HOST: "xssbot"
+      ADMIN_HOST: "xssbot"
+      THIS_URL: "http://zero-storage-eof-ctf.csie.org:1310/"
+    volumes:
+      - ./zerostorage/app:/app:ro
+      - ./zerostorage/nginx-default.conf:/etc/nginx/sites-available/default:ro
+      - ./zerostorage/run.sh:/run.sh:ro

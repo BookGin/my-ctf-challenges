@@ -1,0 +1,262 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url("/static/font/Quicksand-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("/static/font/Roboto-Regular.ttf") format("truetype");
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+.chart-container {
+    position: relative;
+    height: 7em;
+}
+
+.post-li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+}
+
+/* LAYOUT CSS */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+
+.sidebar {
+    background: rgb(8, 104, 0);
+    color: #fff;
+}
+
+.brand-title,
+.brand-tagline {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+}
+.brand-title {
+    text-transform: uppercase;
+}
+.brand-tagline {
+    font-weight: 300;
+    color: rgb(176, 202, 219);
+}
+
+.nav-list {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    color: #fff;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+}
+
+.content-subhead {
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    padding: 2em 1em 0;
+}
+
+.post {
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 1em;
+}
+.post-title {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #222;
+    margin-bottom: 0.2em;
+}
+.post-avatar {
+    border-radius: 50px;
+    float: right;
+    margin-left: 1em;
+}
+.post-description {
+    color: #444;
+    line-height: 1.8em;
+}
+.post-meta {
+    font-family: 'Roboto', sans-serif;
+    color: #999;
+    font-size: 90%;
+    margin: 0;
+    text-align: right;
+}
+
+.pure-table {
+    width: 100%;
+    /*table-layout: fixed;*/
+}
+
+.table-head {
+    text-align: center;
+}
+    .table-head-leader {
+        width: 8%;
+    }
+    .table-head-status {
+        width: 12%;
+    }
+    /*.table-head-ctf {
+        width: 10%;
+    }*/
+    .table-head-chal {
+        width: 22%;
+    }
+    .table-head-contrib {
+        width: 10%;
+    }
+    .table-head-chart {
+        width: 48%;
+    }
+
+.table-td {
+    text-align: center;
+}
+.table-td-break-all {
+    word-break: break-all;
+}
+.table-primary-row {
+    font-weight: 800;
+}
+
+.pure-button {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 0.1em;
+    padding: 0.6em 1em;
+    color: #fff;
+    background: #999;
+    font-size: 90%;
+    border-radius: 0.75em;
+    width: 100%;
+}
+    .pure-button-ongoing {
+        background: #5aba59;
+    }
+    /*.pure-button-done {
+        background: #4d85d1;
+    }*/
+    .pure-button-disputed {
+        background: #df2d4f;
+    }
+    .pure-button-primary {
+        background: #36ac80;
+        max-width: 20em;
+        margin: 0 auto;
+        display: block;
+        font-size: 90%;
+        border-radius: 1em;
+    }
+    .pure-button-nav {
+    }
+    .pure-button-hash {
+        background: rgb(61, 79, 93);
+        font-size: 90%;
+        border-radius: 1.5em;
+        width: auto;
+    }
+
+.post-images {
+    margin: 1em 0;
+}
+.post-image-meta {
+    margin-top: -3.5em;
+    margin-left: 1em;
+    color: #fff;
+    text-shadow: 0 1px 1px #333;
+}
+
+.footer {
+    padding: 0.5em 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer p {
+    color: #ccc;
+    font-size: 80%;
+}
+
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
+    background: none;
+}
+
+.contrib {
+  width: 100%;
+  min-width: 5em;
+  text-align: center;
+}
+
+@media (min-width: 48em) {
+    .content {
+        padding: 2em 3em 0;
+        margin-left: 25%;
+    }
+
+    .header {
+        margin: 70% 2em 0;
+        text-align: right;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+}

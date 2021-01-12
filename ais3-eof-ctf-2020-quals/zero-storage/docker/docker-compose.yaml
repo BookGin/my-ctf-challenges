@@ -1,0 +1,39 @@
+version: "2.2"
+services:
+  xssbot:
+    restart: always
+    build: ./xssbot
+    image: bookgin/xssbot
+    container_name: xssbot
+    environment:
+      WORKERS: 4
+      LOAD_TIME_SEC: 7
+      WEB_SERVICE_NAME: "zerostorage"
+      WEB_HOSTNAME: "zero-storage-eof-ctf.csie.org"
+    volumes:
+      - ./xssbot/run.sh:/run.sh:ro
+      - ./xssbot/xssbot.py:/xssbot.py:ro
+  zerostorage:
+    restart: always
+    build: ./zerostorage
+    image: bookgin/zerostorage
+    container_name: zerostorage
+    depends_on:
+      - xssbot
+    ports:
+      - "127.0.0.1:1310:1310/tcp" # the ports must be identical
+    environment:
+      WORKERS: 4
+      # A: admin's file, B: admin's password
+      FLAG_A: "FLAG{i_guess_I_run_OuT_of_IDEAs_ABouT_NuMbers......}"
+      FLAG_B: "FLAG{DO_u_rEMEmBeR_LudiBRIUM_s_Funny_tIME_makeR_bgM?}"
+      DATABASE_URL: "/tmp/186EV8RgXM0cxdyKp3KLq827vesk2hZw.sqlite3"
+      ADMIN_FILENAME: "maSAAkI-kiSHIbE-sONG-for-1310_hepHNKnZQntYd0pd.txt"
+      SECRET_KEY: "Ludibrium-Secret-133.221.333.123.111_kvYAtbZkwkhyPv5B"
+      REDIS_HOST: "xssbot"
+      ADMIN_HOST: "xssbot"
+      THIS_URL: "http://zero-storage-eof-ctf.csie.org:1310/"
+    volumes:
+      - ./zerostorage/app:/app:ro
+      - ./zerostorage/nginx-default.conf:/etc/nginx/sites-available/default:ro
+      - ./zerostorage/run.sh:/run.sh:ro

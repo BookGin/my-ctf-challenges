@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Zero Storage System</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/pure-min-v1.0.1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/grids-responsive-min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/blog.css') }}">
+    {% block header %}
+    {% endblock %}
+</head>
+<body>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Zero Storage</h1>
+            <h2 class="brand-tagline">Upload files and share with your friends!</h2>
+            <nav class="nav">
+                <ul class="nav-list">
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title">Zero Storage System</h2>
+
+                        <p class="post-meta">
+                           {% block meta %}
+                           {% endblock %}
+                        </p>
+                    </header>
+                    <br>
+                    <div class="post-description">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </section>
+            </div>
+            <div class="footer">
+                <h1 class="content-subhead">
+                    {% block footer %}
+                    {% endblock %}
+                </h1>
+                <p>
+                    Made with <a href="https://purecss.io/layouts/#common-layouts">Pure.css Blog layout</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
